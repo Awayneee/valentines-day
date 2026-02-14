@@ -10,20 +10,26 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="flowers" aria-hidden="true">
+    <span class="flower f1">✿</span>
+    <span class="flower f2">❀</span>
+    <span class="flower f3">✾</span>
+    <span class="flower f4">❁</span>
+    <span class="flower f5">✿</span>
+    <span class="flower f6">❀</span>
+  </div>
+
   <main class="card">
     <p class="tag">14 Şubat sürprizi</p>
     <h1>Mini Bulmaca</h1>
-    <p class="lead">3 küçük soruyu doğru cevapla, kalbimin mesajı açılsın.</p>
+    <p class="lead">2 soruyu doğru cevapla, sürpriz mesaj açılsın.</p>
 
     <form id="puzzleForm" class="puzzle">
-      <label>Soru 1: İlk buluştuğumuz ay?</label>
-      <input id="q1" type="text" placeholder="örnek: haziran" required>
+      <label for="q1">Soru 1: senin bokunun rengi nasıl ?</label>
+      <input id="q1" type="text" placeholder="cevabını yaz" required>
 
-      <label>Soru 2: En sevdiğimiz ortak tatlı?</label>
-      <input id="q2" type="text" placeholder="örnek: waffle" required>
-
-      <label>Soru 3: Sana söylediğim özel kelime?</label>
-      <input id="q3" type="text" placeholder="örnek: papatyam" required>
+      <label for="q2">Soru 2: sana söylediğim özel kelime ?</label>
+      <input id="q2" type="text" placeholder="cevabını yaz" required>
 
       <button type="submit">Kilidi Aç</button>
       <p id="feedback" class="feedback"></p>
@@ -35,7 +41,7 @@
         İyi ki varsın. Seninle geçen her gün, en güzel sürpriz.
         Bu minicik site de sana olan sevgimin dijital bir notu.
       </p>
-      <p class="sign">Sonsuz sevgiyle, <span>Senin Aşkın</span></p>
+      <p class="sign">Sonsuz sevgiyle, <span>Senin Tatlış Bokun</span></p>
     </section>
   </main>
 
