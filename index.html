@@ -19,7 +19,7 @@
     <span class="flower f6">❀</span>
   </div>
 
-  <main class="card">
+  <main class="card" id="card">
     <p class="tag">14 Şubat sürprizi</p>
     <h1>Mini Bulmaca</h1>
     <p class="lead">2 soruyu doğru cevapla, sürpriz mesaj açılsın.</p>
@@ -31,12 +31,20 @@
       <label for="q2">Soru 2: sana söylediğim özel kelime ?</label>
       <input id="q2" type="text" placeholder="cevabını yaz" required>
 
+      <div class="love-check">
+        <p class="love-title">Soru 3: beni seviyor musun?</p>
+        <div class="love-buttons">
+          <button id="yesBtn" class="choice yes" type="button">Evet</button>
+          <button id="noBtn" class="choice no" type="button">Hayır</button>
+        </div>
+      </div>
+
       <button type="submit">Kilidi Aç</button>
       <p id="feedback" class="feedback"></p>
     </form>
 
     <section id="surprise" class="surprise hidden" aria-live="polite">
-      <h2>Sevgililer Günün Kutlu Olsun ❤️</h2>
+      <h2>Sevgililer Günümüz Kutlu Olsun ❤️</h2>
       <p>
         İyi ki varsın. Seninle geçen her gün, en güzel sürpriz.
         Bu minicik site de sana olan sevgimin dijital bir notu.

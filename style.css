@@ -23,6 +23,7 @@ body {
   place-items: center;
   padding: 1rem;
   overflow: hidden;
+  transition: background 260ms ease;
 }
 
 body::before,
@@ -48,6 +49,15 @@ body::after {
   bottom: -10vmax;
   background: #9f57ff70;
   animation-delay: 1.7s;
+}
+
+body.error-mode {
+  background: linear-gradient(135deg, #310303, #650808 48%, #920f0f);
+}
+
+body.error-mode::before,
+body.error-mode::after {
+  background: #ff00006b;
 }
 
 .flowers {
@@ -84,6 +94,12 @@ body::after {
   box-shadow: 0 24px 70px #00000085, inset 0 0 0 1px #ffffff14;
   backdrop-filter: blur(8px);
   animation: rise 700ms ease;
+}
+
+.card.error-shake {
+  border-color: #ff4545;
+  box-shadow: 0 0 0 2px #ff454540, 0 24px 70px #00000085;
+  animation: shake 360ms ease 3;
 }
 
 .tag {
@@ -129,6 +145,45 @@ input::placeholder { color: #b796c8; }
 input:focus {
   outline: 2px solid #ca82ff;
   border-color: transparent;
+}
+
+.love-check {
+  margin-top: 0.5rem;
+  padding: 0.8rem;
+  border: 1px solid #ffffff2e;
+  border-radius: 14px;
+  background: #190f24b8;
+}
+
+.love-title {
+  margin: 0;
+  font-weight: 700;
+}
+
+.love-buttons {
+  margin-top: 0.7rem;
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.choice {
+  margin-top: 0;
+  width: 120px;
+  position: relative;
+}
+
+.choice.yes {
+  background: linear-gradient(90deg, #fb4ea6, #8d4fff);
+}
+
+.choice.no {
+  background: linear-gradient(90deg, #7a7a7a, #4f4f4f);
+  transition: transform 150ms ease;
+}
+
+.choice.active {
+  box-shadow: 0 0 0 2px #ffffff55, 0 10px 26px #7c2ff56e;
 }
 
 button {
@@ -203,7 +258,18 @@ button:disabled { opacity: 0.55; cursor: not-allowed; }
   100% { transform: translate(3vmax, 2vmax) scale(1.08); }
 }
 
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+  100% { transform: translateX(0); }
+}
+
 @media (max-width: 600px) {
   .card { padding: 1rem; }
   .flower { opacity: 0.55; }
+  .love-buttons { gap: 0.45rem; }
+  .choice { width: 106px; }
 }
