@@ -6,6 +6,7 @@ const noBtn = document.getElementById("noBtn");
 const card = document.getElementById("card");
 
 let loveApproved = false;
+let heartIntervalId = null;
 
 const normalize = (value) =>
   value
@@ -47,25 +48,75 @@ function rejectNo() {
 }
 
 function moveNoButton() {
-  const x = Math.floor(Math.random() * 90) - 45;
-  const y = Math.floor(Math.random() * 40) - 20;
+  const x = Math.floor(Math.random() * 100) - 50;
+  const y = Math.floor(Math.random() * 46) - 23;
   noBtn.style.transform = `translate(${x}px, ${y}px)`;
+}
+
+function spawnHeart(
+  x = Math.random() * window.innerWidth,
+  y = window.innerHeight + 10
+) {
+  const heart = document.createElement("span");
+  heart.className = "heart";
+  heart.textContent = "❤";
+  heart.style.left = `${x}px`;
+  heart.style.top = `${y}px`;
+  heart.style.fontSize = `${16 + Math.random() * 20}px`;
+  heart.style.animationDuration = `${2.4 + Math.random() * 1.5}s`;
+  heart.style.opacity = `${0.55 + Math.random() * 0.4}`;
+  heart.style.setProperty("--drift", `${-70 + Math.random() * 140}`);
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 4200);
+}
+
+function startHeartCelebration() {
+  for (let i = 0; i < 14; i += 1) {
+    spawnHeart(
+      window.innerWidth * 0.3 + Math.random() * (window.innerWidth * 0.4),
+      window.innerHeight * 0.55 + Math.random() * 120
+    );
+  }
+
+  if (heartIntervalId) {
+    clearInterval(heartIntervalId);
+  }
+
+  heartIntervalId = setInterval(() => {
+    spawnHeart();
+  }, 260);
+
+  setTimeout(() => {
+    clearInterval(heartIntervalId);
+    heartIntervalId = null;
+  }, 3400);
 }
 
 yesBtn.addEventListener("click", () => {
   loveApproved = true;
   yesBtn.classList.add("active");
   noBtn.classList.remove("active");
+  noBtn.style.transform = "translate(0, 0)";
   feedback.textContent = "Doğru cevap, devam et ❤️";
   feedback.className = "feedback ok";
+  startHeartCelebration();
 });
 
-["pointerenter", "touchstart", "click"].forEach((evt) => {
-  noBtn.addEventListener(evt, (event) => {
-    event.preventDefault();
-    moveNoButton();
-    rejectNo();
-  });
+function handleNo(event) {
+  event.preventDefault();
+  moveNoButton();
+  rejectNo();
+}
+
+["click", "pointerdown", "mousedown", "touchstart"].forEach((evt) => {
+  noBtn.addEventListener(evt, handleNo, { passive: false });
+});
+
+noBtn.addEventListener("pointerenter", () => {
+  moveNoButton();
 });
 
 form.addEventListener("submit", (event) => {
