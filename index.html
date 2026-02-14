@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Pacifico&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=5" />
+  <link rel="stylesheet" href="style.css?v=6" />
 </head>
 <body>
   <div class="flowers" aria-hidden="true">
@@ -19,39 +19,51 @@
     <span class="flower f6">❀</span>
   </div>
 
-  <main class="card" id="card">
-    <p class="tag">14 Şubat sürprizi</p>
-    <h1>Mini Bulmaca</h1>
-    <p class="lead">2 soruyu doğru cevapla, sürpriz mesaj açılsın.</p>
+  <div class="page-wrap">
+    <main class="card" id="card">
+      <p class="tag">14 Şubat sürprizi</p>
+      <h1>Mini Bulmaca</h1>
+      <p class="lead">2 soruyu doğru cevapla, sürpriz mesaj açılsın.</p>
 
-    <form id="puzzleForm" class="puzzle">
-      <label for="q1">Soru 1: senin bokunun rengi nasıl ?</label>
-      <input id="q1" type="text" placeholder="cevabını yaz" required>
+      <form id="puzzleForm" class="puzzle">
+        <label for="q1">Soru 1: senin bokunun rengi nasıl ?</label>
+        <input id="q1" type="text" placeholder="cevabını yaz" required>
 
-      <label for="q2">Soru 2: sana söylediğim özel kelime ?</label>
-      <input id="q2" type="text" placeholder="cevabını yaz" required>
+        <label for="q2">Soru 2: sana söylediğim özel kelime ?</label>
+        <input id="q2" type="text" placeholder="cevabını yaz" required>
 
-      <div class="love-check">
-        <p class="love-title">Soru 3: beni seviyor musun?</p>
-        <div class="love-buttons">
-          <button id="yesBtn" class="choice yes" type="button">Evet</button>
-          <button id="noBtn" class="choice no" type="button">Hayır</button>
+        <div class="love-check">
+          <p class="love-title">Soru 3: beni seviyor musun?</p>
+          <div class="love-buttons">
+            <button id="yesBtn" class="choice yes" type="button">Evet</button>
+            <button id="noBtn" class="choice no" type="button">Hayır</button>
+          </div>
         </div>
+
+        <button type="submit">Kilidi Aç</button>
+        <p id="feedback" class="feedback"></p>
+      </form>
+
+      <section id="surprise" class="surprise hidden" aria-live="polite">
+        <h2>Sevgililer Günümüz Kutlu Olsun ❤️</h2>
+        <p>
+          İyi ki varsın. Seninle geçen her gün, en güzel sürpriz.
+          Bu minicik site de sana olan sevgimin dijital bir notu.
+        </p>
+        <p class="sign">Sonsuz sevgiyle, <span>Senin Tatlış Bokun</span></p>
+      </section>
+    </main>
+
+    <section class="card memories">
+      <h2>Biraz da Aşağı Kaydır ✨</h2>
+      <p class="lead">Bu bölüm özellikle scroll hissi için eklendi, aşağı indikçe arka plan animasyonları canlı kalır.</p>
+      <div class="memory-grid">
+        <article>İlk tanıştığımız günün enerjisi hâlâ aynı.</article>
+        <article>Birlikte gülmek en sevdiğim şey.</article>
+        <article>Bu sayfa da sana özel küçük bir not.</article>
       </div>
-
-      <button type="submit">Kilidi Aç</button>
-      <p id="feedback" class="feedback"></p>
-    </form>
-
-    <section id="surprise" class="surprise hidden" aria-live="polite">
-      <h2>Sevgililer Günümüz Kutlu Olsun ❤️</h2>
-      <p>
-        İyi ki varsın. Seninle geçen her gün, en güzel sürpriz.
-        Bu minicik site de sana olan sevgimin dijital bir notu.
-      </p>
-      <p class="sign">Sonsuz sevgiyle, <span>Senin Tatlış Bokun</span></p>
     </section>
-  </main>
+  </div>
 
   <script src="script.js?v=5"></script>
 </body>

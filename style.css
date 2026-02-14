@@ -13,17 +13,29 @@
 
 * { box-sizing: border-box; }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
   font-family: "Quicksand", sans-serif;
   color: var(--text);
   background: linear-gradient(130deg, var(--bg-1), var(--bg-2) 45%, var(--bg-3));
-  display: grid;
-  place-items: center;
   padding: 1rem;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   transition: background 260ms ease;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--pink), var(--violet));
+  border-radius: 99px;
 }
 
 body::before,
@@ -58,6 +70,15 @@ body.error-mode {
 body.error-mode::before,
 body.error-mode::after {
   background: #ff00006b;
+}
+
+.page-wrap {
+  position: relative;
+  z-index: 2;
+  width: min(820px, 100%);
+  margin: 8vh auto 10vh;
+  display: grid;
+  gap: 1.2rem;
 }
 
 .flowers {
@@ -96,8 +117,7 @@ body.error-mode::after {
 
 .card {
   position: relative;
-  z-index: 2;
-  width: min(760px, 100%);
+  width: 100%;
   background: linear-gradient(160deg, #1b0d27de, #120a20e3);
   border: 1px solid #ff9ad055;
   border-radius: 26px;
@@ -105,6 +125,23 @@ body.error-mode::after {
   box-shadow: 0 24px 70px #00000085, inset 0 0 0 1px #ffffff14;
   backdrop-filter: blur(8px);
   animation: rise 700ms ease;
+}
+
+.memories {
+  animation: rise 900ms ease;
+}
+
+.memory-grid {
+  margin-top: 0.8rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.memory-grid article {
+  border: 1px solid #ffffff2a;
+  border-radius: 12px;
+  padding: 0.75rem;
+  background: #ffffff0d;
 }
 
 .card.error-shake {
@@ -127,6 +164,10 @@ h1 {
   font-size: clamp(2rem, 7vw, 3rem);
   color: var(--pink);
   text-shadow: 0 0 24px #ff50af88;
+}
+
+h2 {
+  margin: 0.2rem 0 0.35rem;
 }
 
 .lead {
@@ -285,6 +326,7 @@ button:disabled { opacity: 0.55; cursor: not-allowed; }
 }
 
 @media (max-width: 600px) {
+  .page-wrap { margin-top: 5vh; }
   .card { padding: 1rem; }
   .flower { opacity: 0.55; }
   .love-buttons { gap: 0.45rem; }
