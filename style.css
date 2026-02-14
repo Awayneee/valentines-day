@@ -4,7 +4,6 @@
   --bg-3: #2a0f35;
   --pink: #ff4ea6;
   --violet: #a855ff;
-  --rose: #ff9ad0;
   --text: #ffeef8;
   --muted: #e8c8dc;
   --ok: #80ffc0;
@@ -13,9 +12,7 @@
 
 * { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -29,9 +26,7 @@ body {
   transition: background 260ms ease;
 }
 
-body::-webkit-scrollbar {
-  width: 10px;
-}
+body::-webkit-scrollbar { width: 10px; }
 
 body::-webkit-scrollbar-thumb {
   background: linear-gradient(var(--pink), var(--violet));
@@ -78,7 +73,11 @@ body.error-mode::after {
   width: min(820px, 100%);
   margin: 8vh auto 10vh;
   display: grid;
-  gap: 1.2rem;
+  gap: 0;
+}
+
+.scroll-space {
+  height: 36vh;
 }
 
 .flowers {
@@ -127,23 +126,6 @@ body.error-mode::after {
   animation: rise 700ms ease;
 }
 
-.memories {
-  animation: rise 900ms ease;
-}
-
-.memory-grid {
-  margin-top: 0.8rem;
-  display: grid;
-  gap: 0.6rem;
-}
-
-.memory-grid article {
-  border: 1px solid #ffffff2a;
-  border-radius: 12px;
-  padding: 0.75rem;
-  background: #ffffff0d;
-}
-
 .card.error-shake {
   border-color: #ff4545;
   box-shadow: 0 0 0 2px #ff454540, 0 24px 70px #00000085;
@@ -166,9 +148,7 @@ h1 {
   text-shadow: 0 0 24px #ff50af88;
 }
 
-h2 {
-  margin: 0.2rem 0 0.35rem;
-}
+h2 { margin: 0.2rem 0 0.35rem; }
 
 .lead {
   margin-top: 0;
@@ -327,6 +307,7 @@ button:disabled { opacity: 0.55; cursor: not-allowed; }
 
 @media (max-width: 600px) {
   .page-wrap { margin-top: 5vh; }
+  .scroll-space { height: 28vh; }
   .card { padding: 1rem; }
   .flower { opacity: 0.55; }
   .love-buttons { gap: 0.45rem; }
