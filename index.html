@@ -1,0 +1,44 @@
+﻿<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bizim Minik Sürprizimiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <p class="tag">14 Şubat sürprizi</p>
+    <h1>Mini Bulmaca</h1>
+    <p class="lead">3 küçük soruyu doğru cevapla, kalbimin mesajı açılsın.</p>
+
+    <form id="puzzleForm" class="puzzle">
+      <label>Soru 1: İlk buluştuğumuz ay?</label>
+      <input id="q1" type="text" placeholder="örnek: haziran" required>
+
+      <label>Soru 2: En sevdiğimiz ortak tatlı?</label>
+      <input id="q2" type="text" placeholder="örnek: waffle" required>
+
+      <label>Soru 3: Sana söylediğim özel kelime?</label>
+      <input id="q3" type="text" placeholder="örnek: papatyam" required>
+
+      <button type="submit">Kilidi Aç</button>
+      <p id="feedback" class="feedback"></p>
+    </form>
+
+    <section id="surprise" class="surprise hidden" aria-live="polite">
+      <h2>Sevgililer Günün Kutlu Olsun ❤️</h2>
+      <p>
+        İyi ki varsın. Seninle geçen her gün, en güzel sürpriz.
+        Bu minicik site de sana olan sevgimin dijital bir notu.
+      </p>
+      <p class="sign">Sonsuz sevgiyle, <span>Senin Aşkın</span></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
